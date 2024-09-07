@@ -3,7 +3,7 @@ import { useCookies } from 'react-cookie';
 import axios from 'axios';
 import { url } from '../const';
 import { Header } from '../components/Header';
-import './newTask.scss';
+import styles from './newTask.module.css';
 import { useNavigate } from 'react-router-dom';
 import { formatDateToISO } from '../utils/dateUtils';
 
@@ -63,34 +63,53 @@ export const NewTask = () => {
   return (
     <div>
       <Header />
-      <main className="new-task">
-        <h2>タスク新規作成</h2>
-        <p className="error-message">{errorMessage}</p>
-        <form className="new-task-form">
-          <label>リスト</label>
-          <br />
+      <main className={styles.newTask}>
+        <h1 className={styles.newTaskTitle}>タスク新規作成</h1>
+        <p className={styles.errorMessage}>{errorMessage}</p>
+        <form>
+          <label htmlFor="taskListSelect" className={styles.taskSelectListLabel}>
+            リスト
+          </label>
           <select
             onChange={(e) => handleSelectList(e.target.value)}
-            className="new-task-select-list"
+            className={styles.newTaskSelectList}
+            id="taskListSelect"
           >
             {lists.map((list, key) => (
-              <option key={key} className="list-item" value={list.id}>
+              <option key={key} className={styles.listItem} value={list.id}>
                 {list.title}
               </option>
             ))}
           </select>
-          <br />
-          <label>タイトル</label>
-          <br />
-          <input type="text" onChange={handleTitleChange} className="new-task-title" />
-          <br />
-          <label>詳細</label>
-          <br />
-          <textarea type="text" onChange={handleDetailChange} className="new-task-detail" />
-          <br />
-          <label htmlFor="limit">期限</label>
-          <input type="datetime-local" id="limit" name="limit" onChange={handleLimitChange} />
-          <button type="button" className="new-task-button" onClick={onCreateTask}>
+          <label htmlFor="title" className={styles.titleInputLabel}>
+            タイトル
+          </label>
+          <input
+            type="text"
+            id="title"
+            onChange={handleTitleChange}
+            className={styles.taskTitleInput}
+          />
+          <label className={styles.detailInputLabel} id="detail">
+            詳細
+          </label>
+          <textarea
+            type="text"
+            id="detail"
+            onChange={handleDetailChange}
+            className={styles.taskDetailInput}
+          />
+          <label htmlFor="limit" className={styles.limitInputLabel}>
+            期限
+          </label>
+          <input
+            type="datetime-local"
+            id="limit"
+            name="limit"
+            className={styles.taskLimitInput}
+            onChange={handleLimitChange}
+          />
+          <button type="button" className={styles.newTaskButton} onClick={onCreateTask}>
             作成
           </button>
         </form>

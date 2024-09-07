@@ -1,55 +1,66 @@
-.signUp {
+.signIn {
   width: 500px;
   margin: 0 auto;
   margin-top: 24px;
 }
 
-.signUp-form {
-  margin-top: 8px;
+.signInForm {
+  margin-top: 16px;
 }
 
-.signUp-Title {
+.signInTitle {
   color: #5555558a;
   font-family: 'TsukuARdGothic-Regular';
   font-weight: bold;
+  margin-top: 40px;
 }
 
-.email-label,
-.name-input-label,
-.password-input-label {
+.emailLabel,
+.passwordLabel {
+  display: block;
   color: #5555558a;
   font-family: 'TsukuARdGothic-Regular';
   font-weight: bold;
+  margin-top: 16px;
 }
 
-.email-input,
-.name-input,
-.password-input {
+.emailInput,
+.passwordInput {
   width: 100%;
-  height: 30px;
   border: 1px solid #55555545;
   border-radius: 8px;
-  padding: 8px;
-  margin-bottom: 25px;
+  padding: 16px;
 }
 
-.signUp-button {
+.signInButton {
   background-color: #6bbcb6f0;
   color: #ffffff;
   font-weight: bold;
+  border-radius: 8px;
   width: 100px;
   height: 40px;
-  border-radius: 8px;
+  margin: 24px 0px;
   transition:
     background-color 0.3s ease,
     transform 0.3s ease;
 }
 
-.signUp-button:hover {
+.signInButton:hover {
   opacity: 0.8;
   transform: scale(1.05);
 }
 
-.error-message {
+.errorMessage {
   color: #ff3333d1;
+}
+
+.signUpLink {
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.signUpLink:hover {
+  opacity: 0.4;
+  transform: scale(1.05);
 }
