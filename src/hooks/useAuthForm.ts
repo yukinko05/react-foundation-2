@@ -25,8 +25,8 @@ const getAuthFormScheme = (isSignUp: boolean) => {
     return z
       .object({
         name: z.string().min(1, '名前は必須です'),
-        ...baseScheme,
         confirm: z.string(),
+        ...baseScheme,
       })
       .refine((data) => data.password === data.confirm, {
         message: 'パスワードとパスワード（確認）が異なっています。',
@@ -56,6 +56,8 @@ export const useAuthForm = (isSignUp = false, authUrl: string) => {
     resolver: zodResolver(authFormScheme),
   });
 
+  const typedErrors: any = errors;
+
   const onSubmit = async (data: AuthFormSchemeType) => {
     try {
       const response = await axios.post(`${url}/${authUrl}`, data);
@@ -75,7 +77,7 @@ export const useAuthForm = (isSignUp = false, authUrl: string) => {
     register,
     watch,
     handleSubmit,
-    errors,
+    typedErrors,
     onSubmit,
     errorMessage,
   };
