@@ -31,6 +31,11 @@
   margin-bottom: 25px;
 }
 
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .submitButton {
   background-color: #6bbcb6f0;
   color: #ffffff;
@@ -48,6 +53,13 @@
   transform: scale(1.05);
 }
 
+.link {
+  color: #0000ffc7;
+}
+
+.link:hover {
+  opacity: 0.6;
+}
 .errorMessage {
   color: #ff3333d1;
 }
